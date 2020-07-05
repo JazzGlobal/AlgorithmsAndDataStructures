@@ -25,6 +25,38 @@ namespace AlgorithmsAndDatastructures
             return temp;
         }
 
+        /// <summary>
+        /// Returns the index of the first occurrence of the passed value. Passed array must be sorted.
+        /// </summary>
+        /// <param name="array"></param>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static KeyValuePair<bool, int> GetIndex(int[] array, int value)
+        {
+            int split = array.Length / 2; 
+            if(value > array[split])
+            {
+                // Search Upper Half
+                for (int index = split; index < array.Length; index++)
+                {
+                    if(value == array[index])
+                    {
+                        return new KeyValuePair<bool, int>(true, index);
+                    }
+                }
+            } else
+            {
+                // Search Lower Half
+                for (int index = 0; index < split; index++)
+                {
+                    if(value == array[index])
+                    {
+                        return new KeyValuePair<bool, int>(true, index);
+                    }
+                }
+            }
+            return new KeyValuePair<bool, int>(false, -1);
+        }
 
         public static void PrintArray<T>(T[] array)
         {
