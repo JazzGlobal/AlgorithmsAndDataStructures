@@ -10,36 +10,6 @@ namespace AlgorithmsAndDatastructures
     {
         public static T[] RotateArray<T>(T[] array, int spaces)
         {
-            T[] temp = new T[array.Length];
-            T[] result = new T[array.Length];
-
-            if(spaces > array.Length)
-            {
-                spaces = spaces % array.Length;
-            }
-            Console.WriteLine(spaces);
-
-            for (int i = 0; i < spaces; i++){
-                temp[i] = array[i];
-            }
-
-            int temp_index = 0;
-
-            for(int i = array.Length - spaces; i < array.Length; i++)
-            {
-                result[i] = temp[temp_index];
-                temp_index++;
-            }
-
-            for(int i = 0; i < array.Length - spaces; i++)
-            {
-                result[i] = array[spaces + i];
-            }
-            return result;
-        }
-
-        public static T[] EnhancedRotate<T>(T[] array, int spaces)
-        {
             if(spaces > array.Length)
             {
                 spaces = spaces % array.Length;
